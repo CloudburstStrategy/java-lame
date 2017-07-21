@@ -7,7 +7,6 @@ Original sources by the authors of LAME: http://www.sourceforge.net/projects/lam
 The code is - as the original - licensed under the LGPL (see LICENSE).
 
 This is a mavenised version of Nico Waldispühl's project the here: https://github.com/nwaldispuehl/java-lame
-All credit goes to Nico Waldispühl 
 
 ## How to get 
 
