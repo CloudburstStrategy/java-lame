@@ -6,24 +6,27 @@ Original sources by the authors of LAME: http://www.sourceforge.net/projects/lam
 
 The code is - as the original - licensed under the LGPL (see LICENSE).
 
-## How to build 
+This is a mavenised version of Nico Waldispühl's project the here: https://github.com/nwaldispuehl/java-lame
+All credit goes to Nico Waldispühl 
 
-To create a jar file, you may start the gradle build process with the included gradle wrapper:
+## How to get 
 
-    $ ./gradlew jar
+Add JCenter to your repos:
+
+    <repository>
+        <id>jcenter-snapshots</id>
+        <name>jcenter</name>
+        <url>https://jcenter.bintray.com/</url>
+    </repository>
     
-The resulting library is then to be found in the following directory:
+Then include this dependency:
 
-    ./build/libs/
+    <dependency>
+        <groupId>com.cloudburst</groupId>
+        <artifactId>java-lame</artifactId>
+        <version>3.98.4</version>
+    </dependency>
     
-You can find an already built Jar file in the releases: https://github.com/nwaldispuehl/java-lame/releases
-
-## How to run
-
-After having created a jar file, you certainly can run it as a command line application:
-
-    $ cd /build/libs
-    $ java -jar net.sourceforge.lame-3.98.4.jar
 
 ## How to use Java LAME in a project?
 
@@ -57,3 +60,9 @@ public byte[] encodePcmToMp3(byte[] pcm) {
   return mp3.toByteArray();
 }
 ```
+
+
+## To Release new version to Bintray
+
+    mvn clean release:prepare -Darguments="-Dmaven.javadoc.skip=true"
+    mvn release:perform -Darguments="-Dmaven.javadoc.skip=true"
