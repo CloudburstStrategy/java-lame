@@ -1,4 +1,7 @@
 # Java LAME
+
+WARNING - I have experienced some unexplained issues with output mp3 files :0(
+
 This java port of LAME 3.98.4 was created by Ken Händel for his 'jump3r - Java Unofficial MP3 EncodeR' project:
 http://sourceforge.net/projects/jsidplay2/
 

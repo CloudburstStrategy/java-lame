@@ -44,7 +44,7 @@ public class SimpleMp3Encoder {
     }
 
     public byte[] encodePcmToMp3(byte[] pcm, AudioFormat inputFormat) {
-        LameEncoder encoder = new LameEncoder(inputFormat, 320, MPEGMode.STEREO, Lame.QUALITY_HIGHEST, false);
+        LameEncoder encoder = new LameEncoder(inputFormat, 256, MPEGMode.MONO, Lame.QUALITY_HIGHEST, false);
 
         ByteArrayOutputStream mp3 = new ByteArrayOutputStream();
         byte[] buffer = new byte[encoder.getPCMBufferSize()];
@@ -55,7 +55,6 @@ public class SimpleMp3Encoder {
         while (0 < (bytesWritten = encoder.encodeBuffer(pcm, currentPcmPosition, bytesToTransfer, buffer))) {
             currentPcmPosition += bytesToTransfer;
             bytesToTransfer = Math.min(buffer.length, pcm.length - currentPcmPosition);
-
             mp3.write(buffer, 0, bytesWritten);
         }
 
